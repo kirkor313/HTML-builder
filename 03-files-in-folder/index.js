@@ -1,4 +1,5 @@
 const fs = require ('fs');
+const { stat } = require('fs/promises');
 const path = require('path');
 const pathToSecretFolder = path.join(__dirname, 'secret-folder');
 
@@ -17,7 +18,7 @@ fs.readdir(pathToSecretFolder,
           const name = res.slice(0, res.length-1).join('.');
           const extension = res[res.length - 1];
           const size = stats.size / 1000;
-          console.log(`${name} - ${extension} - ${size} kb`)
+          console.log(`${name} - ${extension} - ${size}kB`)
       })
     }
   })
